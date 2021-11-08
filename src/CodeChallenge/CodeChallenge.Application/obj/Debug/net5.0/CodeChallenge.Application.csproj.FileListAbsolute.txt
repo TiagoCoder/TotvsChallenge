@@ -1,0 +1,15 @@
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\bin\Debug\net5.0\CodeChallenge.Application.deps.json
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\bin\Debug\net5.0\CodeChallenge.Application.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\bin\Debug\net5.0\ref\CodeChallenge.Application.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\bin\Debug\net5.0\CodeChallenge.Application.pdb
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\bin\Debug\net5.0\CodeChallenge.Domain.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\bin\Debug\net5.0\CodeChallenge.Domain.pdb
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\obj\Debug\net5.0\CodeChallenge.Application.csproj.AssemblyReference.cache
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\obj\Debug\net5.0\CodeChallenge.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\obj\Debug\net5.0\CodeChallenge.Application.AssemblyInfoInputs.cache
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\obj\Debug\net5.0\CodeChallenge.Application.AssemblyInfo.cs
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\obj\Debug\net5.0\CodeChallenge.Application.csproj.CoreCompileInputs.cache
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\obj\Debug\net5.0\CodeChallenge.Application.csproj.CopyComplete
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\obj\Debug\net5.0\CodeChallenge.Application.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\obj\Debug\net5.0\ref\CodeChallenge.Application.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Application\obj\Debug\net5.0\CodeChallenge.Application.pdb

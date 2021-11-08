@@ -1,5 +1,6 @@
 ﻿using CodeChallenge.Application.Common;
 using CodeChallenge.Domain.Entities;
+using CodeChallenge.Infrastructure.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -72,6 +73,12 @@ namespace CodeChallenge.Infrastructure.Persistence
                 _logger.LogError("[Database::Exception] An unexpected error ocurred.", ex);
                 throw;
             }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new BillConfiguration());
+            modelBuilder.ApplyConfiguration(new CoinConfiguration());
         }
     }
 }

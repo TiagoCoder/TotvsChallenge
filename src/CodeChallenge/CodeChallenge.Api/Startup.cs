@@ -1,3 +1,5 @@
+using CodeChallenge.Infrastructure;
+using CodeChallenge.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +21,12 @@ namespace CodeChallenge.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Injeção de serviços da camada de Infraestrutura
+            services.AddInfrastructureServices(Configuration);
+
+            // Fez check de saude à base de dados relativas ao contexto descrito abaixo
+            services.AddHealthChecks()
+                    .AddDbContextCheck<ApplicationDbContext>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
