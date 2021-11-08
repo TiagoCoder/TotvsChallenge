@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YR1xSCjzZqul9bC2zJTwpibyUa/8hcGZ6J8kKizFJrmJZavZftCo65F3jpEbOmWwgSQioyOkNp9v3RDcV1EkQw==",
+  "dgSpecHash": "E/acAslPhV3/MlOfyAn/vk1Ay7U1INnf4G5W3fNzh1uJz7ZnhHB0RsMQMU/0VicFXaBekxCvrf0U7iJ83AfZfw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tiago\\Desktop\\Totvs\\teste\\src\\CodeChallenge\\CodeChallenge.Infrastructure\\CodeChallenge.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Tiago\\.nuget\\packages\\fluentvalidation\\10.3.4\\fluentvalidation.10.3.4.nupkg.sha512",
+    "C:\\Users\\Tiago\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\Tiago\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Tiago\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\Tiago\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

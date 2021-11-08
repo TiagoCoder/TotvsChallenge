@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "f5SVB7tETk2wffgEAXr6x4ZL7MlDJhL7CfQRlKH5HC/n+4sKjMPF63EqGBIfKmGfWO8ZoiU3tMRPHI9/ftqhNg==",
+  "dgSpecHash": "+ort7H7kCWGaEK4RcUT/oKBpI63LgAaxWAriT9WV4O282CEwQ5V+LPB9jT/pdBslPI7Gj/VSJ9vHekDWbeui0w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tiago\\Desktop\\Totvs\\teste\\src\\CodeChallenge\\CodeChallenge.Api\\CodeChallenge.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Tiago\\.nuget\\packages\\fluentvalidation\\10.3.4\\fluentvalidation.10.3.4.nupkg.sha512",
     "C:\\Users\\Tiago\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Tiago\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\Tiago\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Tiago\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\Tiago\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

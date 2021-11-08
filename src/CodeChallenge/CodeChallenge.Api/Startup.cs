@@ -1,3 +1,4 @@
+using CodeChallenge.Application;
 using CodeChallenge.Infrastructure;
 using CodeChallenge.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Builder;
@@ -21,6 +22,9 @@ namespace CodeChallenge.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Injeção de serviços da camada de Aplicação
+            services.AddApplicationServices();
+
             // Injeção de serviços da camada de Infraestrutura
             services.AddInfrastructureServices(Configuration);
 
