@@ -2,7 +2,6 @@ C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\bin\De
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\bin\Debug\net5.0\CodeChallenge.Domain.dll
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\bin\Debug\net5.0\ref\CodeChallenge.Domain.dll
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\bin\Debug\net5.0\CodeChallenge.Domain.pdb
-C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\obj\Debug\net5.0\CodeChallenge.Domain.csproj.AssemblyReference.cache
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\obj\Debug\net5.0\CodeChallenge.Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\obj\Debug\net5.0\CodeChallenge.Domain.AssemblyInfoInputs.cache
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\obj\Debug\net5.0\CodeChallenge.Domain.AssemblyInfo.cs
@@ -10,3 +9,4 @@ C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\obj\De
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\obj\Debug\net5.0\CodeChallenge.Domain.dll
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\obj\Debug\net5.0\ref\CodeChallenge.Domain.dll
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\obj\Debug\net5.0\CodeChallenge.Domain.pdb
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Domain\obj\Debug\net5.0\CodeChallenge.Domain.csproj.AssemblyReference.cache

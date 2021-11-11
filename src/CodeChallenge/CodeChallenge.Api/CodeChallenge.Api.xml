@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CodeChallenge.Api</name>
+    </assembly>
+    <members>
+        <member name="M:CodeChallenge.Api.Controllers.v1.ExchangeController.CreateTransaction(CodeChallenge.Application.Services.Change.Commands.CreateTransaction.CreateTransactionCommand,System.Threading.CancellationToken)">
+            <summary>
+            Cria uma nova transaction
+            </summary>
+            <param name="createTransactionCommand"></param>
+            <param name="cancellationToken"></param>
+            <response code="200">Retorna a informação da transaction</response>
+            <response code="400">Erro inesperado</response>
+        </member>
+    </members>
+</doc>

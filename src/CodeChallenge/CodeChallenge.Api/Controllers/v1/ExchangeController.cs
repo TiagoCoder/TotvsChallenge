@@ -1,87 +1,81 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CodeChallenge.Application.Helpers;
+using CodeChallenge.Application.Services.Change.Commands.CreateTransaction;
+using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net.Mime;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CodeChallenge.Api.Controllers.v1
 {
+    [ApiController]
+    [Route("api/v1/exchange")]
     public class ExchangeController : Controller
     {
-        // GET: ExchangeController
-        public ActionResult Index()
+        private readonly IMediator _mediator;
+        public ExchangeController(IMediator mediator)
         {
-            return View();
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
+        //// GET: ExchangeController
+        //public async Task<ActionResult> GetBills(CancellationToken cancellationToken)
+        //{
+        //    return View();
+        //}
 
-        // GET: ExchangeController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //// GET: ExchangeController/Details/5
+        //public async Task<ActionResult> GetCoins(CancellationToken cancellationToken)
+        //{
+        //    return View();
+        //}
 
-        // GET: ExchangeController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //// GET: ExchangeController/Create
+        //public async Task<ActionResult> GetTransactionById([FromRoute] int id, CancellationToken cancellationToken)
+        //{
+        //    return View();
+        //}
 
-        // POST: ExchangeController/Create
+        /// <summary>
+        /// Cria uma nova transaction
+        /// </summary>
+        /// <param name="createTransactionCommand"></param>
+        /// <param name="cancellationToken"></param>
+        /// <response code="200">Retorna a informação da transaction</response>
+        /// <response code="400">Erro inesperado</response>
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+
+        public async Task<ActionResult> CreateTransaction([FromBody] CreateTransactionCommand createTransactionCommand, CancellationToken cancellationToken)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var response = await _mediator.Send(createTransactionCommand, cancellationToken);
+
+            var formattedResponse = ResponseMessageFormatterHelper.FormatResponse(response.Result);
+
+            return Ok(formattedResponse);
         }
 
-        // GET: ExchangeController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        //// POST: ExchangeController/Create
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> CreateBill([FromBody] CreateBillCommand createBillCommand, CancellationToken cancellationToken)
+        //{
+        //        var response = await _mediator.Send(createBillCommand, cancellationToken);
+        //        return Ok(response);
+        //}
 
-        // POST: ExchangeController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //// POST: ExchangeController/Create
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> CreateCoin([FromBody] CreateCoinCommand createCoinCommand, CancellationToken cancellationToken)
+        //{
+        //        var response = await _mediator.Send(createCoinCommand, cancellationToken);
 
-        // GET: ExchangeController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ExchangeController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return Ok(response);
+        //}
     }
 }

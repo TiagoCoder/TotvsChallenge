@@ -1,4 +1,4 @@
-﻿using CodeChallenge.Application.Common;
+﻿using CodeChallenge.Application.Common.Interfaces;
 using CodeChallenge.Domain.Entities;
 using CodeChallenge.Infrastructure.Configuration;
 using Microsoft.EntityFrameworkCore;

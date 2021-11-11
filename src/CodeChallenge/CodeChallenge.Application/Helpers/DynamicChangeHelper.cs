@@ -1,77 +1,121 @@
-﻿using CodeChallenge.Application.Entities;
+﻿using CodeChallenge.Application.Entities.TransactionDetails;
+using CodeChallenge.Domain.Enumerations;
 using System;
 using System.Collections.Generic;
 
 namespace CodeChallenge.Application.Helpers
 {
-    public class DynamicChange
+    public static class DynamicChangeHelper
     {
 
-        public static ChangeDTO GetBillsChange(int[] bills, int[] coins, decimal totalAmount)
+        public static List<TransactionDetailDTO> GetChange(decimal[] values, decimal totalAmount, PaymentTypes type)
         {
             //Inicializa a classe ChangeDTO
-            ChangeDTO change = new();
+            List<TransactionDetailDTO> change = new(); ;
 
             // Organiza o array do valor mais pequeno ao maior
-            Array.Sort(bills);
-            Array.Sort(coins);
+            Array.Sort(values);
 
-            // Guarda o valor decimal numa váriavel de forma a ser usada no futuro
-            decimal coinsAmount = Math.Truncate(totalAmount);
-
-            int amount = (int)totalAmount;
+            // Inicializa a lista de notas a retornar
+            // Usa-se um dicionario por questões de performance
+            Dictionary<decimal, int> valuesToReturn = new();
 
             // Enquanto existir um valor maior que a nota mais pequena existente continua a processar
-            while (amount > bills[0])
+
+            decimal keyValue = 0.00M;
+
+            decimal maxValue = values[^1];
+            decimal minValue = values[0];
+
+            int maxCount = values.Length -1 ;
+
+            while (totalAmount >= maxValue)
             {
-                // Itera pelo numero de notas
-                for (int j = 1; j < bills.Length; j++)
+                if (totalAmount - maxValue >= maxValue || totalAmount - maxValue >= minValue)
                 {
-                    // Se o valor total for menor que a nota em iteração, adicionamos o valor anterior à lista de resultados
-                    if (amount - bills[j] < 0)
-                    {
-                        amount -= bills[j - 1];
-                        change.Bills.Add(bills[j - 1]);
-                    }
+                    AddValueOrIncrementQuantity<decimal>(valuesToReturn, maxValue);
+
+                    totalAmount = RemoveAmount(totalAmount, maxValue);
+                }
+                else if (totalAmount - maxValue == 0.00M)
+                {
+                    AddValueOrIncrementQuantity<decimal>(valuesToReturn, maxValue);
+
+                    totalAmount = RemoveAmount(totalAmount, maxValue);
                 }
             }
-            // Se existir ainda troco que apenas seja possivel processar através de moedas, chamamos o método que trata de retornar essa informação
-            if (amount < bills[0])
-            {
-                // Adiciona o valor inteiro que sobra ao valor decimal retirado previamente.
-                coinsAmount += amount;
 
-                // Igualamos a propriedade Coins o resultado da função getCoinsChange
-                change.Coins = GetCoinsChange(coins, coinsAmount);
+            int count = 0;
+
+            while (totalAmount >= minValue)
+            {
+                if (totalAmount - values[count] == 0.00M)
+                {
+                    keyValue = values[count];
+
+                    AddValueOrIncrementQuantity<decimal>(valuesToReturn, keyValue);
+
+                    totalAmount = RemoveAmount(totalAmount, keyValue);
+                }
+                else if (totalAmount - values[count] < minValue)
+                {
+                    if(totalAmount - values[count] > 0.00M && totalAmount - values[count] < minValue)
+                    {
+                        keyValue = values[count];
+                    }
+                    else
+                    {
+                        keyValue = values[count - 1];
+                    }
+
+                    AddValueOrIncrementQuantity<decimal>(valuesToReturn, keyValue);
+
+                    totalAmount = RemoveAmount(totalAmount, keyValue);
+
+                    count = 0;
+                }
+                else
+                {
+                    count++;
+                }
             }
+
+            // Conta quantas vezes a mesma nota é usada como troco e adiciona o valor à estrutura de retorno
+            change = BulkInsert(valuesToReturn, change, type);
 
             // retorna o troco que contêm notas e moedas ou apenas notas
             return change;
         }
-
-        private static List<decimal> GetCoinsChange(int[] coins, decimal amount)
+        public static void AddValueOrIncrementQuantity<T>(this Dictionary<T, int> dictionary, T key)
         {
-            // Inicializa a lista de decimais a retornar
-            List<decimal> results = new List<decimal>();
-
-            // Organiza o array do valor mais pequeno ao maior
-            Array.Sort(coins);
-
-            // Enquanto existir troco continua a processar
-            while (amount > 0.00M)
+            if (!dictionary.TryGetValue(key, out int count))
             {
-                // Itera pelo numero de moedas
-                for (int j = 1; j < coins.Length; j++)
-                {
-                    // Se o valor total for menor que a moeda em iteração, adicionamos o valor anterior à lista de resultados
-                    if (amount - coins[j] < 0)
-                    {
-                        amount -= coins[j - 1];
-                        results.Add(coins[j - 1]);
-                    }
-                }
+                dictionary.Add(key, 1);
             }
-            return results;
+            else
+            {
+                dictionary[key] = count + 1;
+            }
+        }
+
+        public static decimal RemoveAmount(decimal amount, decimal key)
+        {
+            return amount - key;
+        }
+
+        private static List<TransactionDetailDTO> BulkInsert(Dictionary<decimal,int> keyValuePairs1, List<TransactionDetailDTO> transactionDetails, PaymentTypes paymentType)
+        {
+            foreach (var keyValuePair in keyValuePairs1)
+            {
+                transactionDetails.Add( new TransactionDetailDTO
+                {
+                    Type = paymentType,
+                    Value = keyValuePair.Key,
+                    Quantity = keyValuePair.Value
+                });
+            }
+
+            return transactionDetails;
         }
     }
 }

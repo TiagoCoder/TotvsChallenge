@@ -1,12 +1,16 @@
 using CodeChallenge.Application;
 using CodeChallenge.Infrastructure;
 using CodeChallenge.Infrastructure.Persistence;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace CodeChallenge.Api
 {
@@ -32,10 +36,18 @@ namespace CodeChallenge.Api
             services.AddHealthChecks()
                     .AddDbContextCheck<ApplicationDbContext>();
 
-            services.AddControllers();
+            services.AddControllers()
+                    .AddFluentValidation();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CodeChallenge.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "CodeChallenge.Api",
+                    Version = "v1"
+                });
+                var xfile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xpath = Path.Combine(AppContext.BaseDirectory, xfile);
+                c.IncludeXmlComments(xpath);
             });
         }
 
@@ -50,9 +62,7 @@ namespace CodeChallenge.Api
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

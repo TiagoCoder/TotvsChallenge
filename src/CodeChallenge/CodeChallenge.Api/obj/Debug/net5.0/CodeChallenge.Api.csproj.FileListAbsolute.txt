@@ -68,3 +68,11 @@ C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\obj\Debug
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\obj\Debug\net5.0\CodeChallenge.Api.genruntimeconfig.cache
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\bin\Debug\net5.0\MediatR.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\bin\Debug\net5.0\CodeChallenge.Api.xml
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Api\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
