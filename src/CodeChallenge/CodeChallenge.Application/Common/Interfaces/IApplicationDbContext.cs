@@ -7,6 +7,8 @@ namespace CodeChallenge.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {
+        #region Methods
+
         /// <summary>
         /// Insere novos registos na base de dados. Este método já invoca o SaveChangesAsync().
         /// </summary>
@@ -48,6 +50,9 @@ namespace CodeChallenge.Application.Common.Interfaces
         /// <returns></returns>
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 
+        #endregion
+
+        #region DbSets
         public DbSet<Bill> Bills { get; set; }
 
         public DbSet<Coin> Coins { get; set; }
@@ -55,5 +60,6 @@ namespace CodeChallenge.Application.Common.Interfaces
         public DbSet<Transaction> Transactions { get; set; }
 
         public DbSet<TransactionDetail> TransactionDetails { get; set; }
+        #endregion
     }
 }

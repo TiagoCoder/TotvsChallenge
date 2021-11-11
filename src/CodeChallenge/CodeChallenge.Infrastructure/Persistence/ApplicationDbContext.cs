@@ -2,7 +2,6 @@
 using CodeChallenge.Domain.Entities;
 using CodeChallenge.Infrastructure.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,16 +10,13 @@ namespace CodeChallenge.Infrastructure.Persistence
 {
     public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
-        private readonly ILogger<ApplicationDbContext> _logger;
 
-        public ApplicationDbContext(DbContextOptions options,
-            ILogger<ApplicationDbContext> logger
-            )
-            : base(options)
-        {
-            _logger = logger;
-        }
+        #region Constructor
+        public ApplicationDbContext(DbContextOptions options)
+            : base(options) { }
+        #endregion
 
+        #region DbSets
         public DbSet<Bill> Bills { get; set; }
 
         public DbSet<Coin> Coins { get; set; }
@@ -29,6 +25,9 @@ namespace CodeChallenge.Infrastructure.Persistence
 
         public DbSet<TransactionDetail> TransactionDetails { get; set; }
 
+        #endregion
+
+        #region Generic Methods
         public async Task<int> InsertAsync<T>(T entity, CancellationToken cancellationToken = default) where T : class
         {
             var dbSet = Set<T>();
@@ -65,20 +64,24 @@ namespace CodeChallenge.Infrastructure.Persistence
             }
             catch (DbUpdateException dbException)
             {
-                _logger.LogError("[Database::Update::Exception] An error ocurred while updating data.", dbException);
+                //_logger.LogError("[Database::Update::Exception] An error ocurred while updating data.", dbException);
                 throw;
             }
             catch (Exception ex)
             {
-                _logger.LogError("[Database::Exception] An unexpected error ocurred.", ex);
+                // _logger.LogError("[Database::Exception] An unexpected error ocurred.", ex);
                 throw;
             }
         }
 
+        #endregion
+
+        #region Seeds Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new BillConfiguration());
             modelBuilder.ApplyConfiguration(new CoinConfiguration());
         }
+        #endregion
     }
 }

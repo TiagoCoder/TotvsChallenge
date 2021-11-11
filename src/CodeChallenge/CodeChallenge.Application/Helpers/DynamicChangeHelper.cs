@@ -7,28 +7,37 @@ namespace CodeChallenge.Application.Helpers
 {
     public static class DynamicChangeHelper
     {
-
+        #region GetChange
         public static List<TransactionDetailDTO> GetChange(decimal[] values, decimal totalAmount, PaymentTypes type)
         {
-            //Inicializa a classe ChangeDTO
+            #region Variables Inicialization
+            //Inicializa a lista a retornar
             List<TransactionDetailDTO> change = new(); ;
 
             // Organiza o array do valor mais pequeno ao maior
             Array.Sort(values);
 
-            // Inicializa a lista de notas a retornar
+            // Inicializa uma lista temporaria onde vão ser inseridos os valores
             // Usa-se um dicionario por questões de performance
             Dictionary<decimal, int> valuesToReturn = new();
 
-            // Enquanto existir um valor maior que a nota mais pequena existente continua a processar
-
+            // Inicializa a variavel keyValue
             decimal keyValue = 0.00M;
 
+            // Define o valor maximo dos valores disponiveis
             decimal maxValue = values[^1];
+
+            // Define o valor minimo dos valores disponiveis
             decimal minValue = values[0];
 
+            // Define o valor máximo do contador
             int maxCount = values.Length -1 ;
 
+            // Inicializa o contador com o valor 0
+            int count = 0;
+            #endregion
+
+            #region Lógica para valores superiores ao valor maximo disponível
             while (totalAmount >= maxValue)
             {
                 if (totalAmount - maxValue >= maxValue || totalAmount - maxValue >= minValue)
@@ -44,9 +53,9 @@ namespace CodeChallenge.Application.Helpers
                     totalAmount = RemoveAmount(totalAmount, maxValue);
                 }
             }
+            #endregion
 
-            int count = 0;
-
+            #region Lógica para quando o montante é inferior ao valor máximo disponível
             while (totalAmount >= minValue)
             {
                 if (totalAmount - values[count] == 0.00M)
@@ -79,14 +88,18 @@ namespace CodeChallenge.Application.Helpers
                     count++;
                 }
             }
+            #endregion
 
-            // Conta quantas vezes a mesma nota é usada como troco e adiciona o valor à estrutura de retorno
+            #region Insere os valores a utilizar na lista de retorno
             change = BulkInsert(valuesToReturn, change, type);
+            #endregion
 
-            // retorna o troco que contêm notas e moedas ou apenas notas
             return change;
         }
-        public static void AddValueOrIncrementQuantity<T>(this Dictionary<T, int> dictionary, T key)
+        #endregion
+
+        #region Metodos Auxiliares
+        private static void AddValueOrIncrementQuantity<T>(this Dictionary<T, int> dictionary, T key)
         {
             if (!dictionary.TryGetValue(key, out int count))
             {
@@ -98,7 +111,7 @@ namespace CodeChallenge.Application.Helpers
             }
         }
 
-        public static decimal RemoveAmount(decimal amount, decimal key)
+        private static decimal RemoveAmount(decimal amount, decimal key)
         {
             return amount - key;
         }
@@ -117,5 +130,6 @@ namespace CodeChallenge.Application.Helpers
 
             return transactionDetails;
         }
+        #endregion
     }
 }

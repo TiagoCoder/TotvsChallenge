@@ -38,6 +38,8 @@ namespace CodeChallenge.Api
 
             services.AddControllers()
                     .AddFluentValidation();
+
+            // Configuração do Swagger/UI e comentários
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo

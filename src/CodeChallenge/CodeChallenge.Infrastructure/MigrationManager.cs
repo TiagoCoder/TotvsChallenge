@@ -6,8 +6,17 @@ using System;
 
 namespace CodeChallenge.Infrastructure
 {
+    /// <summary>
+    /// Class that manages EF Core migrations
+    /// </summary>
     public static class MigrationManager
     {
+        #region MigrateDatabase
+        /// <summary>
+        /// Applies Migrations to Database on creating
+        /// </summary>
+        /// <param name="host"></param>
+        /// <returns></returns>
         public static IHost MigrateDatabase(this IHost host)
         {
             using (var scope = host.Services.CreateScope())
@@ -27,5 +36,6 @@ namespace CodeChallenge.Infrastructure
             }
             return host;
         }
+        #endregion
     }
 }

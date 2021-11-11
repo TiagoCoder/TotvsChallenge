@@ -1,5 +1,7 @@
-﻿using CodeChallenge.Application.Helpers;
+﻿using CodeChallenge.Application.Entities.Transaction;
+using CodeChallenge.Application.Helpers;
 using CodeChallenge.Application.Services.Change.Commands.CreateTransaction;
+using CodeChallenge.Application.Services.Change.Queries.GetTransactionById;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,24 +21,8 @@ namespace CodeChallenge.Api.Controllers.v1
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
-        //// GET: ExchangeController
-        //public async Task<ActionResult> GetBills(CancellationToken cancellationToken)
-        //{
-        //    return View();
-        //}
 
-        //// GET: ExchangeController/Details/5
-        //public async Task<ActionResult> GetCoins(CancellationToken cancellationToken)
-        //{
-        //    return View();
-        //}
-
-        //// GET: ExchangeController/Create
-        //public async Task<ActionResult> GetTransactionById([FromRoute] int id, CancellationToken cancellationToken)
-        //{
-        //    return View();
-        //}
-
+        #region CreateTransaction
         /// <summary>
         /// Cria uma nova transaction
         /// </summary>
@@ -44,7 +30,7 @@ namespace CodeChallenge.Api.Controllers.v1
         /// <param name="cancellationToken"></param>
         /// <response code="200">Retorna a informação da transaction</response>
         /// <response code="400">Erro inesperado</response>
-        [HttpPost]
+        [HttpPost("getChange")]
         [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
@@ -54,28 +40,33 @@ namespace CodeChallenge.Api.Controllers.v1
         {
             var response = await _mediator.Send(createTransactionCommand, cancellationToken);
 
+            // Transforma a propriedade result numa string
             var formattedResponse = ResponseMessageFormatterHelper.FormatResponse(response.Result);
 
             return Ok(formattedResponse);
         }
+        #endregion
 
-        //// POST: ExchangeController/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> CreateBill([FromBody] CreateBillCommand createBillCommand, CancellationToken cancellationToken)
-        //{
-        //        var response = await _mediator.Send(createBillCommand, cancellationToken);
-        //        return Ok(response);
-        //}
+        #region GetTransactionById
 
-        //// POST: ExchangeController/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> CreateCoin([FromBody] CreateCoinCommand createCoinCommand, CancellationToken cancellationToken)
-        //{
-        //        var response = await _mediator.Send(createCoinCommand, cancellationToken);
+        /// <summary>
+        /// Devolve a informação de uma transação
+        /// </summary>
+        /// <param name="id" example="2">Id da Transação</param>
+        /// <param name="cancellationToken"></param> 
+        /// <response code="200">Retorna a informação da transação</response>
+        /// <response code="404">Transação não encontrada</response>
+        /// <response code="400">Erro inesperado</response>
+        [HttpGet("/byId/{id}")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(typeof(TransactionDTO), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetTransactionById([FromRoute] int id, CancellationToken cancellationToken)
+        {
+            var query = new GetTransactionByIdQuery { Id = id };
+            var response = await _mediator.Send(query, cancellationToken);
 
-        //        return Ok(response);
-        //}
+            return Ok(response);
+        }
+        #endregion
     }
 }

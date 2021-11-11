@@ -6,10 +6,17 @@ namespace CodeChallenge.Infrastructure.Configuration
 {
     public class BillConfiguration : IEntityTypeConfiguration<Bill>
     {
+        /// <summary>
+        /// Configures the entity injected.
+        /// Seeds data
+        /// </summary>
+        /// <param name="builder"></param>
         public void Configure(EntityTypeBuilder<Bill> builder)
         {
+            // Sets the decimal precision for the Value property
             builder.Property(p => p.Value).HasPrecision(5, 2);
 
+            // Seeds data on first app inicialization
             builder.HasData
                 (
                     new Bill

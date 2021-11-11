@@ -17,8 +17,4 @@
     <ProjectReference Include="..\CodeChallenge.Domain\CodeChallenge.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Change\Queries\" />
-  </ItemGroup>
-
 </Project>
