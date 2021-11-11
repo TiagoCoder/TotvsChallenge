@@ -1,0 +1,17 @@
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\bin\Debug\net5.0\CodeChallenge.Infrastructure.deps.json
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\bin\Debug\net5.0\CodeChallenge.Infrastructure.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\bin\Debug\net5.0\ref\CodeChallenge.Infrastructure.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\bin\Debug\net5.0\CodeChallenge.Infrastructure.pdb
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\bin\Debug\net5.0\CodeChallenge.Application.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\bin\Debug\net5.0\CodeChallenge.Domain.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\bin\Debug\net5.0\CodeChallenge.Application.pdb
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\bin\Debug\net5.0\CodeChallenge.Domain.pdb
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\obj\Debug\net5.0\CodeChallenge.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\obj\Debug\net5.0\CodeChallenge.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\obj\Debug\net5.0\CodeChallenge.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\obj\Debug\net5.0\CodeChallenge.Infrastructure.AssemblyInfo.cs
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\obj\Debug\net5.0\CodeChallenge.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\obj\Debug\net5.0\CodeChallenge.Infrastructure.csproj.CopyComplete
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\obj\Debug\net5.0\CodeChallenge.Infrastructure.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\obj\Debug\net5.0\ref\CodeChallenge.Infrastructure.dll
+C:\Users\Tiago\Desktop\Totvs\teste\src\CodeChallenge\CodeChallenge.Infrastructure\obj\Debug\net5.0\CodeChallenge.Infrastructure.pdb
